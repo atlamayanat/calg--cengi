@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Sergi/Kiosk modu — uzun-basma menüsü, metin seçimi ve sürükle-bırak görselini kilitle */
+html, body, #root {
+  -webkit-touch-callout: none;     /* iOS uzun-basma menüsü */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overscroll-behavior: none;       /* pull-to-refresh */
+}
+
+/* Form alanlarında metin girilebilsin */
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Resimlerin sürüklenmesini engelle (logo/arka plan) */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}

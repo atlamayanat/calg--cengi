@@ -1,0 +1,6 @@
+{
+  "name": "Ritim Ustası",
+  "description": "9 slotlu ritim kontrol paneli ile kendi ritimlerini oluştur ve oynat. Darbuka, Djembe, Zil ve daha fazlasıyla müzik yap.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
