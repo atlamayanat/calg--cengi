@@ -55,7 +55,7 @@ function InstrumentCard({
     ? 'p-2.5 md:p-3 min-h-[180px] md:min-h-[210px]'
     : 'p-3 md:p-4 min-h-[180px] md:min-h-[220px]';
   const iconBoxCls = compact ? 'p-2 md:p-2.5' : 'p-2.5 md:p-3';
-  const iconCls = compact ? 'w-7 h-7 md:w-9 md:h-9' : 'w-7 h-7 md:w-9 md:h-9';
+  const iconCls = compact ? 'w-14 h-14 md:w-20 md:h-20' : 'w-14 h-14 md:w-20 md:h-20';
   const nameCls = compact ? 'mt-2 text-sm md:text-base' : 'mt-2 md:mt-2.5 text-sm md:text-base';
   const labelCls = compact ? 'text-[10px] md:text-xs' : 'text-[10px] md:text-xs';
   const dotCls = compact ? 'w-6 h-6 md:w-7 md:h-7' : 'w-7 h-7 md:w-8 md:h-8';
@@ -69,8 +69,17 @@ function InstrumentCard({
           : 'border-transparent shadow-md opacity-90 hover:opacity-100'
       } ${isDragging ? 'opacity-30' : ''} ${isOverlay ? 'border-white shadow-2xl scale-110 cursor-grabbing' : 'cursor-grab active:cursor-grabbing'}`}
     >
-      <div className={`${iconBoxCls} rounded-2xl bg-white/20`}>
-        <inst.icon className={`${iconCls} text-white`} />
+      <div className={`${iconBoxCls} rounded-2xl bg-white/20 flex items-center justify-center`}>
+        {typeof inst.icon === 'string' ? (
+          <img
+            src={inst.icon}
+            alt={inst.name}
+            draggable={false}
+            className={`${iconCls} object-contain select-none pointer-events-none brightness-0 invert`}
+          />
+        ) : (
+          <inst.icon className={`${iconCls} text-white`} />
+        )}
       </div>
       <span className={`${nameCls} font-bold text-white text-center leading-tight`}>
         {inst.name}
