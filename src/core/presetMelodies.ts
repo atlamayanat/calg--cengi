@@ -64,7 +64,7 @@ export const PRESET_MELODIES: Record<string, Melody> = {
 
   // 4) Mehter — Türk askeri yürüyüşü, büyük davul + zil vurgulu
   'mehter': {
-    name: 'Mehter',
+    name: 'Marş',
     bpm: 100,
     slots: pad([
       { instrument: 'BD1', hits: 2 },
@@ -178,7 +178,7 @@ export const PRESET_DISPLAY_NAMES: Record<string, string> = {
   yuruyus: 'Yürüyüş',
   rock: 'Rock',
   darbuka: 'Darbuka',
-  mehter: 'Mehter',
+  mehter: 'Marş',
   hareketli: 'Hareketli',
   caz: 'Caz',
   yavas: 'Yavaş',
