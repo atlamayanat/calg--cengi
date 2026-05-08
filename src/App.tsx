@@ -397,15 +397,9 @@ export default function App() {
     });
     // Daha önce yetkilendirilmiş portu sessizce aç (sistem başlatıldığında)
     serialBridge.tryAutoConnect().catch(() => {});
-    // 3 sn'de bir, max 5 deneme — kablo geçici çıkarsa kendiliğinden bağlansın
-    let attempts = 0;
+    // 3 sn'de bir sürekli — kiosk yeniden açıldığında / USB geç enumere olduğunda kendiliğinden bağlansın
     const tick = setInterval(() => {
-      if (serialBridge.getStatus() === 'connected' || serialBridge.getStatus() === 'connecting') {
-        attempts = 0;
-        return;
-      }
-      if (attempts >= 5) return;
-      attempts++;
+      if (serialBridge.getStatus() === 'connected' || serialBridge.getStatus() === 'connecting') return;
       serialBridge.tryAutoConnect().catch(() => {});
     }, 3000);
     return () => { off(); clearInterval(tick); };
